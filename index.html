@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script crossorigin="use-credentials" src="https://businessmessages.google.com/widget/v2/js"></script>
+    <script crossorigin="use-credentials" src="https://businessmessages.google.com/widget/v2/js?cb=gbmCallback"></script>
     <title>GBM Test</title>
 </head>
 <body>
@@ -14,11 +14,14 @@
     </button>
 
     <script>
-        const chatBtn = document.getElementById('gbmChatBtn');
-        const searchParams = new URLSearchParams(location.search);
 
-        if (searchParams.get('openChat') === 'true') {
-            chatBtn.click();
+        function gbmCallback() {
+            const chatBtn = document.getElementById('gbmChatBtn');
+            const searchParams = new URLSearchParams(location.search);
+    
+            if (searchParams.get('openChat') === 'true') {
+                chatBtn.click();
+            }
         }
     </script>
 </body>
