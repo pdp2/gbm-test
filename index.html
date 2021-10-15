@@ -8,11 +8,20 @@
 </head>
 <body>
     <h1>GBM Test</h1>
-    
+
     <script crossorigin="use-credentials" src="https://businessmessages.google.com/widget/v2/js"></script>
     
-    <button data-bm-widget-layout="button" data-bm-widget-agent-id="80337ed8-3315-484d-bf0f-df8ca8900cee">
+    <button data-bm-widget-layout="button" data-bm-widget-agent-id="80337ed8-3315-484d-bf0f-df8ca8900cee" id="gbmChatBtn">
         <span class="bm-widget-button-text">Chat with us</span>
     </button>
+
+    <script>
+        const chatBtn = document.getElementById('gbmChatBtn');
+        const searchParams = new URLSearchParams(location.search);
+
+        if (searchParams.get('openChat') === 'true') {
+            chatBtn.click();
+        }
+    </script>
 </body>
 </html>
