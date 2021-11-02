@@ -9,17 +9,20 @@
 </head>
 <body>
     <h1>GBM Test</h1>    
-    <button data-bm-widget-layout="button" data-bm-widget-agent-id="80337ed8-3315-484d-bf0f-df8ca8900cee" id="gbmChatBtn">
+    <button data-bm-widget-layout="button" data-bm-widget-agent-id="" id="gbmChatBtn">
         <span class="bm-widget-button-text">Chat with us</span>
     </button>
 
     <script>
-
         function gbmCallback() {
             const chatBtn = document.getElementById('gbmChatBtn');
             const searchParams = new URLSearchParams(location.search);
+            const openChat = searchParams.get('openChat') === 'true';
+            const agentId = searchParams.get('agentId') || '80337ed8-3315-484d-bf0f-df8ca8900cee';
+
+            chatBtn.setAttribute('data-bm-widget-agent-id', agentId);
     
-            if (searchParams.get('openChat') === 'true') {
+            if (openChat) {
                 chatBtn.click();
             }
         }
